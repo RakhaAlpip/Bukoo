@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "174517219106",
+    "project_id": "bukoo-e3efd",
+    "storage_bucket": "bukoo-e3efd.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:174517219106:android:2c651da8ed48a8a0593f7b",
+        "android_client_info": {
+          "package_name": "com.example.bukoo"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDA92aSmYzn2MLFSYK6HhveYitVGKZIhgI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
