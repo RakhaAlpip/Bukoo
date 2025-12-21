@@ -21,11 +21,9 @@ class Book {
 
   factory Book.fromJson(Map<String, dynamic> json) {
     return Book(
-      // Mapping _id dari API ke variable id
       id: json['_id']?.toString() ?? '', 
       title: json['title'] ?? 'Tanpa Judul',
       author: json['author'] ?? 'Anonim',
-      // API ini biasanya pakai key 'image' atau 'cover'
       coverUrl: json['image'] ?? 'https://via.placeholder.com/150', 
       synopsis: json['summary'] ?? json['description'] ?? 'Tidak ada sinopsis',
       year: int.tryParse(json['year'].toString()) ?? 2020,

@@ -19,19 +19,11 @@ class ApiService {
         'page': page,
       };
 
-      // Hanya kirim parameter jika ada isinya
       if (sort != null && sort.isNotEmpty) params['sort'] = sort;
       if (keyword != null && keyword.isNotEmpty) params['keyword'] = keyword;
-
-      // Request ke endpoint /book
       final response = await _dio.get('/book', queryParameters: params);
 
-      // Debugging: Lihat output di console
       print("API Response URL: ${response.realUri}");
-      
-      // Handle response structure
-      // Biasanya API ini mengembalikan { "message": "...", "data": [...] }
-      // atau langsung [...]
       
       List<dynamic> listData = [];
       
@@ -47,7 +39,6 @@ class ApiService {
       
     } catch (e) {
       print("API Error: $e");
-      // Kembalikan list kosong agar aplikasi tidak crash
       return []; 
     }
   }

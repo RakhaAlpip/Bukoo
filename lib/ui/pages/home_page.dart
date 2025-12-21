@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:intl/intl.dart'; // Jangan lupa add intl di pubspec
+import 'package:intl/intl.dart';
 import '../../providers/book_provider.dart';
 import '../../data/models/book_model.dart';
 
@@ -9,22 +9,18 @@ class HomePage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    // Ambil data buku (AsyncValue)
     final booksAsync = ref.watch(booksProvider);
-    // Ambil state filter saat ini
     final filterState = ref.watch(filterProvider);
 
     return Scaffold(
       appBar: AppBar(title: const Text("Katalog Buku")),
       body: Column(
         children: [
-          // --- FILTER SECTION ---
           Container(
             padding: const EdgeInsets.all(16),
             color: Colors.white,
             child: Column(
               children: [
-                // 1. Search Bar
                 TextField(
                   decoration: const InputDecoration(
                     hintText: 'Cari judul buku...',
@@ -33,14 +29,12 @@ class HomePage extends ConsumerWidget {
                     contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
                   ),
                   onSubmitted: (value) {
-                    // Update keyword di provider
                     ref.read(filterProvider.notifier).update(
                           (state) => state.copyWith(keyword: value),
                         );
                   },
                 ),
                 const SizedBox(height: 10),
-                // 2. Sort Dropdown
                 DropdownButtonFormField<String>(
                   value: filterState.sort,
                   decoration: const InputDecoration(
@@ -68,7 +62,6 @@ class HomePage extends ConsumerWidget {
             ),
           ),
 
-          // --- LIST SECTION ---
           Expanded(
             child: booksAsync.when(
               loading: () => const Center(child: CircularProgressIndicator()),
@@ -93,7 +86,6 @@ class HomePage extends ConsumerWidget {
   }
 }
 
-// Widget Terpisah untuk Card Buku
 class BookCard extends StatelessWidget {
   final Book book;
   const BookCard({super.key, required this.book});

@@ -1,15 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:firebase_core/firebase_core.dart'; // Import ini
-import 'firebase_options.dart'; // Import file yang tadi error
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 
-import 'ui/pages/home_page.dart'; // Sesuaikan dengan struktur folder kamu
+import 'ui/pages/home_page.dart';
 
 void main() async {
-  // 1. Wajib tambahkan ini jika main() dijadikan async
   WidgetsFlutterBinding.ensureInitialized();
-
-  // 2. Inisialisasi Firebase menggunakan file options tadi
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
