@@ -21,14 +21,14 @@ class Book {
 
   factory Book.fromJson(Map<String, dynamic> json) {
     return Book(
-      id: json['_id']?.toString() ?? '', 
+      id: json['_id']?.toString() ?? '',
       title: json['title'] ?? 'Tanpa Judul',
-      author: json['author'] ?? 'Anonim',
-      coverUrl: json['image'] ?? 'https://via.placeholder.com/150', 
-      synopsis: json['summary'] ?? json['description'] ?? 'Tidak ada sinopsis',
-      year: int.tryParse(json['year'].toString()) ?? 2020,
-      price: int.tryParse(json['price'].toString()) ?? 50000, 
-      genre: json['genre'] ?? 'Umum',
+      author: json['author'] is Map ? (json['author']['name'] ?? 'Anonim') : 'Anonim',
+      coverUrl: json['cover_image'] ?? 'https://via.placeholder.com/150',
+      synopsis: json['summary'] ?? 'Tidak ada sinopsis.',
+      year: json['year'] ?? 0,
+      price: json['price'] ?? 0,
+      genre: json['category'] is Map ? (json['category']['name'] ?? 'Umum') : 'Umum',
     );
   }
 }
