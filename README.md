@@ -1,16 +1,40 @@
-# bukoo
+# 📚 Bukoo - Digital Library App
 
-A new Flutter project.
+**Bukoo** adalah aplikasi katalog dan penyewaan buku digital yang dibangun menggunakan Flutter. Aplikasi ini dirancang untuk memberikan pengalaman eksplorasi buku yang serealistis mungkin dengan performa yang dioptimalkan.
 
-## Getting Started
+---
 
-This project is a starting point for a Flutter application.
+## 🚀 Fitur Utama
 
-A few resources to get you started if this is your first Flutter project:
+- **Authentication**: Login & Register aman menggunakan **Firebase Auth**.
+- **Smart Catalog**: Menampilkan daftar buku dengan fitur **Lazy Loading (Pagination)** untuk menghemat kuota dan memori.
+- **Discovery Mode**: 
+  - **Filter Genre**: Eksplorasi buku berdasarkan kategori favorit.
+  - **Random Book**: Fitur "Buku Acak" untuk kamu yang bingung mau baca apa.
+- **Personalized List**: Simpan buku incaran ke dalam daftar **Favorit** (tersimpan di Firestore).
+- **Dynamic View**: Toggle tampilan antara **List View** (detail) atau **Grid View** (fokus sampul).
+- **Smooth Interaction**: Navigasi cepat menggunakan **GetX** dan manajemen state dengan **Riverpod**.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+---
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 🛠️ Tech Stack
+
+- **Framework**: Flutter
+- **State Management**: Riverpod
+- **Backend**: Firebase (Auth & Firestore)
+- **Networking**: Dio (untuk consume Public API)
+- **Navigation**: GetX
+- **Localizations**: Intl (untuk format mata uang Rupiah)
+
+---
+
+## 📺 Demo & Dokumentasi
+
+- 🎥 **Video Review Aplikasi**: [Tonton di YouTube](https://youtu.be/N5A87eoGaO0)
+- 📦 **Download APK**: [Klik di Sini untuk Download APK Bukoo](https://drive.google.com/drive/folders/1eJ8EXUwMYGRISmfIpgcSWBWLm_jE8Fav?usp=drive_link)
+
+---
+
+## 🏗️ Struktur Project (Clean Code)
+
+Proyek ini meminimalisir penggunaan data `dynamic` dengan mengimplementasikan Data Models untuk response API maupun payload Firestore, sesuai dengan prinsip *type-safety* di Dart.
