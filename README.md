@@ -30,7 +30,7 @@
 
 ## 📺 Demo & Dokumentasi
 
-- 🎥 **Video Review Aplikasi**: [Tonton di YouTube](https://youtu.be/N5A87eoGaO0)
+- 🎥 **Video Review Aplikasi**: [![bukoo.](https://img.youtube.com/vi/N5A87eoGaO0/0.jpg)](https://www.youtube.com/watch?v=N5A87eoGaO0)
 - 📦 **Download APK**: [Klik di Sini untuk Download APK Bukoo](https://drive.google.com/drive/folders/1eJ8EXUwMYGRISmfIpgcSWBWLm_jE8Fav?usp=drive_link)
 
 ---
