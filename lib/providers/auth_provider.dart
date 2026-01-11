@@ -11,43 +11,54 @@ class AuthService {
   Stream<User?> get authState => _auth.authStateChanges();
 
   bool isPasswordValid(String password) {
+    // Regex: Minimal 8 char, ada huruf, ada angka
     final passwordRegex = RegExp(r'^(?=.*[A-Za-z])(?=.*\d).{8,}$');
     return passwordRegex.hasMatch(password);
   }
 
-  Future<void> signUp(String email, String password, String name) async {
+  // UBAH JADI Future<bool>
+  Future<bool> signUp(String email, String password, String name) async {
     if (!isPasswordValid(password)) {
       Get.snackbar(
-        "Password Lemah", 
+        "Password Lemah",
         "Gunakan minimal 8 karakter dengan kombinasi huruf dan angka.",
         snackPosition: SnackPosition.BOTTOM,
         backgroundColor: Colors.redAccent,
         colorText: Colors.white,
       );
-      return;
+      return false; // GAGAL
     }
 
     try {
       UserCredential userCredential = await _auth.createUserWithEmailAndPassword(
-      email: email, 
-      password: password
+        email: email,
+        password: password,
       );
       await userCredential.user?.updateDisplayName(name);
       await userCredential.user?.reload();
-      Get.snackbar("Sukses", "Akun $name berhasil dibuat!", 
-        backgroundColor: const Color(0xFF0D47A1), colorText: Colors.white);
+      
+      Get.snackbar("Sukses", "Akun $name berhasil dibuat!",
+          backgroundColor: const Color(0xFF0D47A1), colorText: Colors.white);
+      
+      return true; // BERHASIL
     } on FirebaseAuthException catch (e) {
-      Get.snackbar("Gagal Daftar", e.message ?? "Terjadi kesalahan");
+      Get.snackbar("Gagal Daftar", e.message ?? "Terjadi kesalahan", backgroundColor: Colors.red, colorText: Colors.white);
+      return false; // GAGAL
     }
   }
 
-  Future<void> signIn(String email, String password) async {
+  // UBAH JADI Future<bool>
+  Future<bool> signIn(String email, String password) async {
     try {
       await _auth.signInWithEmailAndPassword(email: email, password: password);
+      
       Get.snackbar("Selamat Datang", "Berhasil masuk ke Bukoo",
-        backgroundColor: const Color(0xFF0D47A1), colorText: Colors.white);
+          backgroundColor: const Color(0xFF0D47A1), colorText: Colors.white);
+      
+      return true; // BERHASIL
     } on FirebaseAuthException catch (e) {
-      Get.snackbar("Gagal Login", "Email atau password salah.");
+      Get.snackbar("Gagal Login", "Email atau password salah.", backgroundColor: Colors.red, colorText: Colors.white);
+      return false; // GAGAL
     }
   }
 
