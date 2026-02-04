@@ -1,3 +1,7 @@
+## 🚀 App Distribution
+Kamu bisa mendownload dan mencoba versi terbaru aplikasi Bukoo melalui link Firebase App Distribution berikut:
+[Download Bukoo APK](https://appdistribution.firebase.google.com/testerapps/1:174517219106:android:2c651da8ed48a8a0593f7b/releases/03pmbbo6b096g?utm_source=firebase-console)
+
 # 📚 Bukoo - Digital Library App
 
 **Bukoo** adalah aplikasi katalog dan penyewaan buku digital yang dibangun menggunakan Flutter. Aplikasi ini dirancang untuk memberikan pengalaman eksplorasi buku yang serealistis mungkin dengan performa yang dioptimalkan.
